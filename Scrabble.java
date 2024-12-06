@@ -111,7 +111,8 @@ public class Scrabble {
 			} else {
 				if (isWordInDictionary(input)) {
 					sum = wordScore(input);
-					System.out.print(input + " earned " + sum + " points. ");
+					score += sum;
+					System.out.println(input + " earned " + sum + " points. Score: " + score + " points");
 					hand = MyString.remove(hand, input);
 					HAND_SIZE = hand.length();
 				}
@@ -119,8 +120,7 @@ public class Scrabble {
 					System.out.println("Invalid word. Try again.");
 				}
 			}
-			score += sum;
-			System.err.println("Score: " + score + " points");
+			System.out.println();
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
