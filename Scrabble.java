@@ -105,11 +105,13 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+			int sum = 0;
 			if (input.equals(".")) {
 				break;
 			} else {
 				if (isWordInDictionary(input)) {
-					score += wordScore(input);
+					sum = wordScore(input);
+					System.out.print(input + " earned " + sum + " points. ");
 					hand = MyString.remove(hand, input);
 					HAND_SIZE = hand.length();
 				}
@@ -117,6 +119,8 @@ public class Scrabble {
 					System.out.println("Invalid word. Try again.");
 				}
 			}
+			score += sum;
+			System.err.println("Score: " + score + " points");
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -155,7 +159,7 @@ public class Scrabble {
 		////testScrabbleScore();    
 		////testCreateHands();  
 		////testPlayHands();
-		////playGame();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
