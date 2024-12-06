@@ -8,7 +8,7 @@ public class MyString {
         //System.out.println(countChar(hello, 'l'));
         //System.out.println(countChar(hello, 'z'));
         //System.out.println(spacedString(hello));
-        System.out.println(insertRandomly('c', "meet"));
+        System.out.println(randomStringOfLetters(8));
     }
 
     /**
@@ -46,7 +46,7 @@ public class MyString {
             return false;
         }
 		for (int i = 0; i < str1.length(); i++) {
-			if (countChar(str2, str1.charAt(i)) != countChar(str1, str1.charAt(i))) {
+			if ((str2.indexOf(str1.charAt(i)) == -1)||(countChar(str1, str1.charAt(i)) > countChar(str2, str1.charAt(i)))) {
 				sub = false;
 			}
 		}
@@ -87,7 +87,7 @@ public class MyString {
         String letters = "abcdefghijklmnopqrstuvwxyz";
         String newString = "";
         for (int i = 0; i < n; i++) {
-            int rand = (int)(Math.random() * (letters.length() + 1));
+            int rand = (int)(Math.random() * (letters.length()));
             newString += letters.charAt(rand);
         }
         return newString;
