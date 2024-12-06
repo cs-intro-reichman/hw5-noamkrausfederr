@@ -115,12 +115,12 @@ public class Scrabble {
 					System.out.println(input + " earned " + sum + " points. Score: " + score + " points");
 					hand = MyString.remove(hand, input);
 					HAND_SIZE = hand.length();
+					System.out.println();
 				}
 				else {
 					System.out.println("Invalid word. Try again.");
 				}
 			}
-			System.out.println();
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
